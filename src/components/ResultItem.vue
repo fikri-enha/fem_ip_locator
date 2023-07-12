@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="text-xs font-medium text-gray-500">
+    <div class="text-xs font-medium text-center md:text-left text-gray-400">
       <slot name="title"> </slot>
     </div>
-    <div class="text-xl font-medium text-gray-800 mt-2">
+    <div class="text-xl font-medium text-center md:text-left text-gray-800 md:mt-2">
       <slot name="content"> </slot>
     </div>
   </div>

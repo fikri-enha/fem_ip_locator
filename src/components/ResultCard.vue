@@ -1,32 +1,31 @@
 <template>
-  <div class="absolute -bottom-12 w-full flex justify-center items-center">
-    <div class="w-4/5 flex justify-between divide-x bg-white rounded-lg md:p-4 lg:p-6">
-      <ResultItem>
+  <div class="absolute -bottom-40 md:-bottom-20 w-full flex justify-center items-center">
+    <div class="w-4/5 flex flex-col md:flex-row items-center justify-between md:divide-x bg-white rounded-2xl md:rounded-xl py-6 px-2 md:p-4 lg:p-6">
+      <ResultItem class="self-start md:w-1/4">
         <template #title>IP ADDRESS</template>
         <template #content>
-          <span>192.212.174.101</span>
+          {{dataToShow.ipAddress}}
         </template>
       </ResultItem>
 
-      <ResultItem class="ps-4">
+      <ResultItem class="self-start md:w-1/4 md:ps-4 mt-4 md:mt-0">
         <template #title>LOCATION</template>
         <template #content>
-          <span>Broklyn, Ny</span>
-          10001
+          {{dataToShow.location}}
         </template>
       </ResultItem>
-
-      <ResultItem class="ps-4">
+      
+      <ResultItem class="self-start md:w-1/4 md:ps-4 mt-4 md:mt-0">
         <template #title>TIMEZONE</template>
         <template #content>
-          <span>UTC -05:00</span>
+          UTC {{dataToShow.timezone}}
         </template>
       </ResultItem>
-
-      <ResultItem class="ps-4">
+      
+      <ResultItem class="self-start md:w-1/4 md:ps-4 mt-4 md:mt-0">
         <template #title>ISP</template>
         <template #content>
-          <span>STARLINK</span>
+          {{dataToShow.isp}}
         </template>
       </ResultItem>
     </div>
@@ -41,8 +40,17 @@ export default {
   components: {
     ResultItem,
   },
-  setup() {
-    return {};
+  props: {
+    dataToShow: {
+      type: Object,
+      required: true
+    }
+  },
+  setup(props, {emit}) {
+
+    return {
+
+    };
   },
 };
 </script>

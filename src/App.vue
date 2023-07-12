@@ -1,20 +1,52 @@
 <script setup>
-import MapComponent from './components/MapComponent.vue';
-import SearchBox from './components/SearchBox.vue';
-import ResultCard from './components/ResultCard.vue'
+import { ref } from "vue";
+import MapComponent from "./components/MapComponent.vue";
+import SearchBox from "./components/SearchBox.vue";
+import ResultCard from "./components/ResultCard.vue";
+
+const props = defineProps({});
+
+const outputShow = ref({
+  ipAddress: '-',
+  location:'-',
+  timezone: '-',
+  isp: '-',
+});
+
+const location = ref([0,0])
+const setResult = (res) => {
+  const resultPrinted = {
+    ipAddress: res.ip,
+    location:
+      res.location.city + "," + res.location.region + "," + res.location.country + ' ' + res.location.postalCode,
+    timezone: res.location.timezone,
+    isp: res.isp,
+  };
+  outputShow.value = resultPrinted;
+  location.value = [res.location.lat, res.location.lng]
+};
+
 </script>
 
 <template>
-  <div class="container mx-auto">
+  <div class="lg:container mx-auto my-10">
     <div class="relative z-10">
-      <img class="hidden sm:block w-full" src="./assets/images/pattern-bg-desktop.png" alt="">
-      <img class="block sm:hidden" src="./assets/images/pattern-bg-mobile.png" alt="">
-      <div class="absolute w-full top-0">
-        <SearchBox />
+      <img
+        class="hidden sm:block w-full"
+        src="./assets/images/pattern-bg-desktop.png"
+        alt=""
+      />
+      <img
+        class="block sm:hidden w-full"
+        src="./assets/images/pattern-bg-mobile.png"
+        alt=""
+      />
+      <div class="absolute w-full top-5 md:top-5">
+        <SearchBox @set-result="setResult" />
       </div>
-      <ResultCard />
+      <ResultCard :data-to-show="outputShow"/>
     </div>
-    <MapComponent />
+    <MapComponent :location="location"/>
   </div>
 </template>
 
