@@ -27,7 +27,7 @@ export default {
     });
     const ipLocation = ref(null);
     const markerIcon = L.icon({
-      iconUrl: "../src/assets/images/icon-location.svg",
+      iconUrl: "./icon-location.svg",
       // iconSize: [35, 50],
       iconAnchor: [22, 94],
       popupAnchor: [-3, -76],
