@@ -29,7 +29,7 @@ const setResult = (res) => {
 </script>
 
 <template>
-  <div class="lg:container mx-auto">
+  <div class="mx-auto">
     <div class="relative z-10 h-80 bg-[url('./assets/images/pattern-bg-mobile.png')] md:bg-[url('./assets/images/pattern-bg-desktop.png')]"> 
       <div class="absolute w-full top-5 md:top-5 z-10">
         <SearchBox @set-result="setResult" />

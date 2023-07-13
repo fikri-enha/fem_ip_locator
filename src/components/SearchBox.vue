@@ -1,10 +1,10 @@
 <template>
   <div class="w-full flex justify-center items-center">
     <div class="w-4/5 md:w-5/12">
-      <div class="font-medium text-2xl text-center py-2 text-white">
+      <div class="font-medium text-2xl md:text-3xl text-center py-2 text-white">
         IP Address Tracker
       </div>
-      <div class="flex">
+      <div class="flex md:mt-6">
         <input
           type="text"
           name="ipInput"
@@ -41,9 +41,10 @@ export default {
       const ipPattern = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
       // https://geo.ipify.org/api/v2/country,city?apiKey=at_8lj0PHlYcFwcltIZDAYGOegzYPlnx&domain=smart-ics.com
       if (searchInput.value === null) {
-        return;
-      }
-      if (searchInput.value.match(ipPattern)) {
+        params = {
+          apiKey: import.meta.env.VITE_API_GEO_KEY,
+        };
+      } else if (searchInput.value.match(ipPattern)) {
         params = {
           apiKey: import.meta.env.VITE_API_GEO_KEY,
           ipAddress: searchInput.value,
@@ -72,6 +73,10 @@ export default {
           console.log(err);
         });
     };
+
+    onMounted(() => {
+      getIpData();
+    });
 
     return {
       searchInput,
