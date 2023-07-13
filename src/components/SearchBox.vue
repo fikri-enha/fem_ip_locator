@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex justify-center items-center">
-    <div class="w-4/5 md:w-4/12">
+    <div class="w-4/5 md:w-5/12">
       <div class="font-medium text-2xl text-center py-2 text-white">
         IP Address Tracker
       </div>
@@ -9,13 +9,13 @@
           type="text"
           name="ipInput"
           id=""
-          class="block w-full rounded-l-2xl md:rounded-l-xl border-0 text-xl md:text-sm text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 p-4 md:p-2.5"
+          class="block w-full rounded-l-2xl md:rounded-l-xl border-0 text-sm md:text-lg text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 p-2 md:p-3"
           placeholder="Search for any IP address or domain"
           v-model="searchInput"
         />
         <button
           type="button"
-          class="flex-shrink-0 p-6 md:p-3.5 rounded-r-2xl md:rounded-r-xl bg-gray-900 active:bg-gray-700 text-white"
+          class="flex-shrink-0 p-4 md:p-4 rounded-r-2xl md:rounded-r-xl bg-gray-900 active:bg-gray-700 text-white"
           @click="getIpData"
         >
           <img src="../assets/images/icon-arrow.svg" alt="" />
